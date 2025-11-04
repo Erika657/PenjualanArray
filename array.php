@@ -58,3 +58,14 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
     $no++;
 }
 echo "</table>";
+
+// 🧾 Commit 4 – Output akhir
+// ============================
+echo "<hr style='border:1px dashed #999;'>";
+echo "<table style='width:100%; font-size:14px;'>";
+echo "<tr><td><b>Total Penjualan</b></td><td style='text-align:right;'><b>Rp " . number_format($grandtotal, 0, ',', '.') . "</b></td></tr>";
+echo "</table>";
+echo "<hr style='border:1px dashed #999;'>";
+echo "<p style='text-align:center; font-size:13px;'>Terima kasih telah berbelanja di POLGAN MART 😊</p>";
+echo "</div>";
+?>
