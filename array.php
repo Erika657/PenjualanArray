@@ -14,3 +14,17 @@ echo "<p style='font-size:14px;'>Tanggal : $tanggal</p>";
 // Daftar barang dan harga
 $nama_barang  = ["Laptop ", "Keyboard ", "Mouse ", "Monitor ", "Headset "];
 $harga_barang = [7500000, 350000, 150000, 1800000, 500000];
+
+// 🛒 Commit 2 – Logika pembelian
+// ============================
+shuffle($nama_barang); // Acak urutan barang
+$jumlah_produk = rand(1, count($nama_barang)); // Acak jumlah produk
+$jumlah_beli = [];
+$total = [];
+$grandtotal = 0;
+
+for ($i = 0; $i < $jumlah_produk; $i++) {
+    $jumlah_beli[$i] = rand(1, 5);
+    $index_harga = array_search($nama_barang[$i], ["Laptop ", "Keyboard ", "Mouse ", "Monitor ", "Headset"]);
+    $total[$i] = $harga_barang[$index_harga] * $jumlah_beli[$i];
+}
