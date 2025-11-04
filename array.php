@@ -28,3 +28,33 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
     $index_harga = array_search($nama_barang[$i], ["Laptop ", "Keyboard ", "Mouse ", "Monitor ", "Headset"]);
     $total[$i] = $harga_barang[$index_harga] * $jumlah_beli[$i];
 }
+
+// 🧮 Commit 3 – Perhitungan total
+// ============================
+echo "<table style='width:100%; font-size:14px; border-collapse:collapse;'>";
+echo "<tr style='border-bottom:1px solid #999; font-weight:bold;'>
+        <td>No</td>
+        <td>Nama Barang</td>
+        <td style='text-align:center;'>Qty</td>
+        <td style='text-align:right;'>Harga</td>
+        <td style='text-align:right;'>Total</td>
+      </tr>";
+$no = 1;
+for ($i = 0; $i < $jumlah_produk; $i++) {
+    $barang = $nama_barang[$i];
+    $qty = $jumlah_beli[$i];
+    $harga = $total[$i] / $qty;
+    $subtotal = $total[$i];
+
+    echo "<tr>
+            <td>$no</td>
+            <td>$barang</td>
+            <td style='text-align:center;'>$qty</td>
+            <td style='text-align:right;'>Rp " . number_format($harga, 0, ',', '.') . "</td>
+            <td style='text-align:right;'>Rp " . number_format($subtotal, 0, ',', '.') . "</td>
+          </tr>";
+
+           $grandtotal += $subtotal;
+    $no++;
+}
+echo "</table>";
