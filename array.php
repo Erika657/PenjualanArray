@@ -81,6 +81,24 @@ for ($i = 0; $i < $jumlah_produk; $i++) {
 }
 echo "</table>";
 
+// 🔹🧩 Commit 6 – Menambahkan Diskon
+// =================================
+$diskon = 0;
+$persen_diskon = 0;
+
+if ($grandtotal <= 50000) {
+    $persen_diskon = 5;
+    $diskon = $grandtotal * 0.05;
+} elseif ($grandtotal > 50000 && $grandtotal <= 100000) {
+    $persen_diskon = 10;
+    $diskon = $grandtotal * 0.10;
+} else {
+    $persen_diskon = 20;
+    $diskon = $grandtotal * 0.20;
+}
+
+$total_setelah_diskon = $grandtotal - $diskon;
+
 // 🧾 Commit 4 – Output akhir
 // ============================
 echo "<hr style='border:1px dashed #999;'>";
@@ -88,11 +106,17 @@ echo "<table style='width:100%; font-size:14px;'>";
 
 echo "<tr>
 <td><b>Total Penjualan</b></td>
-<td style='text-align:right;'>
-<span style='float:left; margin-left:20px;'>Rp</span>
-<span style='float:right;'><b>" . number_format($grandtotal, 0, ',', '.') . "</b></span>
-</td>
-      </tr>";
+<td style='text-align:right;'>Rp " . number_format($grandtotal, 0, ',', '.') . "</td></tr>";
+
+echo "<tr>
+<td>Diskon ($persen_diskon%)</td>
+          <td style='text-align:right; color:#d00;'>- Rp " . number_format($diskon, 0, ',', '.') . "</td></tr>";
+
+echo "<tr><td><b>Total Pembayaran</b></td>
+          <td style='text-align:right; font-weight:bold; background:#e8f5e9; border-radius:4px;'>
+              Rp " . number_format($total_setelah_diskon, 0, ',', '.') . "
+          </td></tr>";
+
 echo "</table>";
 echo "<hr style='border:1px dashed #999;'>";
 echo "<p style='text-align:center; font-size:13px;'>Terima kasih telah berbelanja di POLGAN MART 😊</p>";
