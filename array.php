@@ -99,6 +99,10 @@ if ($grandtotal <= 50000) {
 
 $total_setelah_diskon = $grandtotal - $diskon;
 
+// 🔹🧩 Commit 7 – Menambahkan Total Pembayaran (uang bayar & kembalian)
+$uang_bayar = rand($total_setelah_diskon, $total_setelah_diskon + 5000000);
+$kembalian = $uang_bayar - $total_setelah_diskon;
+
 // 🧾 Commit 4 – Output akhir
 // ============================
 echo "<hr style='border:1px dashed #999;'>";
@@ -116,6 +120,13 @@ echo "<tr><td><b>Total Pembayaran</b></td>
           <td style='text-align:right; font-weight:bold; background:#e8f5e9; border-radius:4px;'>
               Rp " . number_format($total_setelah_diskon, 0, ',', '.') . "
           </td></tr>";
+          echo "<tr>
+<td>Uang Bayar</td>
+<td style='text-align:right;'>Rp " . number_format($uang_bayar, 0, ',', '.') . "</td></tr>";
+
+echo "<tr>
+<td><b>Kembalian</b></td>
+<td style='text-align:right; font-weight:bold; color:#009688;'>Rp " . number_format($kembalian, 0, ',', '.') . "</td></tr>";
 
 echo "</table>";
 echo "<hr style='border:1px dashed #999;'>";
